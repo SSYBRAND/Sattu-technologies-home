@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>           
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sattu Technologie</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin: 0;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            color: #fff;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 200px 0;
+            background-image: linear-gradient(to right bottom, #4e54c8, #8f94fb);
+            color: #fff;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease 0.5s forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #8f94fb;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            margin-top: 20px;
+            animation: zoomIn 1s ease 1s forwards;
+        }
+
+        .btn:hover {
+            background-color: #4e54c8;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .services {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .services .service {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .services .service h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .services .service p {
+            font-size: 16px;
+        }
+
+        .about {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .about .btn {
+            background-color: #4e54c8;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+        }
+
+        .about .btn:hover {
+            background-color: #8f94fb;
+        }
+
+        .customer-slider {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .customer-slider h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .customer-slider .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            margin-bottom: 20px;
+            padding: 20px 0;
+        }
+
+        .customer-slider .slide {
+            flex: 0 0 auto;
+            width: 400px;
+            padding: 20px;
+            scroll-snap-align: center;
+            text-align: center;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        .customer-slider .slide img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .customer-slider .slide p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .customer-slider .slide {
+                width: 280px;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding-right: 20px;
+        }
+
+        .menu-toggle .bar {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+
+        .menu-toggle.open .bar:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open .bar:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            z-index: 999;
+        }
+
+        .nav-menu.open {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-menu ul {
+            list-style-type: none;
+        }
+
+        .nav-menu ul li {
+            margin: 10px 0;
+        }
+
+        .nav-menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-menu ul li a:hover {
+            background-color: #555;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8f94fb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #4e54c8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h4><img src="https://see.fontimg.com/api/renderfont4/vmgK9/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiI0VEMzc1OSIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U2F0dHUgdGVjaG5vbG9naWVzIA/billion-dreams.png"width="90%"><br><font color=red>Powered BY:&nbsp;</font><font color=aqua>SSY BRAND ❣️</font>&nbsp;
+           <button id="darkModeToggle" class="toggle-btn">
+    <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+</button>
+
+<style>
+    body {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0; /* Change text color to light gray */
+    }
+
+    /* Ensure no pure white elements in dark mode */
+    body.dark-mode * {
+        color: #e0e0e0; /* Adjust default text color */
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .toggle-btn svg {
+        fill: #ffffff;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const body = document.body;
+        const toggleBtn = document.getElementById('darkModeToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        // Load dark mode preference from localStorage
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            body.classList.add('dark-mode');
+            toggleIcon.setAttribute('class', 'feather feather-sun');
+            toggleIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        } else {
+            body.classList.add('light-mode');
+            toggleIcon.setAttribute('class', 'feather feather-moon');
+            toggleIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                toggleIcon.setAttribute('class', 'feather feather-sun');
+                toggleIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                toggleIcon.setAttribute('class', 'feather feather-moon');
+                toggleIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            }
+        });
+    });
+</script>
+
+            </h4>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="https://ssybrand.github.io/Ssynoticeboard/">Notice </a></li>
+                    <li><a href="https://ssybrand.github.io/Sattu-technologies-/">About Us</a></li>
+                    <li><a href="https://ssybrand.github.io/Career-Sattu-technologies-/">Job</a></li>
+                    <li><a href="https://ssybrand.github.io/Help-us/">Help</a></li>
+                </ul>
+                <button class="close-btn" onclick="toggleMenu()">Close</button>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        function toggleMenu() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            menuToggle.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        }
+    </script>
+</body>
+
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+          <br>
+          <marquee><font color=aqua size=3><strong><img src="https://cdnbbsr.s3waas.gov.in/s325db67c5657914454081c6a18e93d6dd/uploads/2023/08/2023082438.gif"width="10%">&nbsp;Free hosting Name on Your fist order and Domain started from INR.149</font> "Order Now "✨</strong></marquee>
+           <br>
+           <h2>Welcome to Sattu Technologies</h2>
+            <p>हम व्यवसायों और व्यक्तियों के लिए शानदार वेबसाइट बनाने में विशेषज्ञ हैं</p>
+            <a href="#services" class="btn">Explore Our Services</a>
+        </div>
+    </section>
+     <center>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .dashboard-button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+            max-width: 300px; /* Limit width for larger screens */
+        }
+        .dashboard-button:nth-child(2) {
+            background-color: #3f51b5;
+        }
+        .dashboard-button:nth-child(3) {
+            background-color: #009688;
+        }
+        .dashboard-button:hover {
+            background-color: #ff8a50;
+            transform: scale(1.05);
+        }
+        .dashboard-button:nth-child(2):hover {
+            background-color: #536dfe;
+        }
+        .dashboard-button:nth-child(3):hover {
+            background-color: #4db6ac;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-title">Client Dashboard</div>
+        <div class="button-container">
+            <button class="dashboard-button" onclick="location.href='https://ssybrand.github.io/Track-project-/'">Track Project</button>
+            <button class="dashboard-button" onclick="location.href='https://ssybrand.github.io/Project-Sattu-technologie/'">Project</button>
+            <button class="dashboard-button" onclick="location.href='domain_price.html'">Domain Price</button>
+        </div>
+    </div>
+</body>
+
+     </center>
+    <section id="services" class="services">
+        <div class="container">
+            <h2><center><img src="https://see.fontimg.com/api/renderfont4/9Y2DK/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiI0YzMjg2QiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/T3VyIFNlcnZpY2UncyA/nature-beauty-personal-use.png"width="70%"></center></h2>
+            <div class="service">
+                <h3><font color=Brown><b>Build Your Business Online 🌐</b></font></h3>
+               <p>If You want to design a website for your business or start up then Click below and order Your website with a top level of domain and Hosting ✨</p>
+          <br></br>
+           <button onclick="openNewPage()" style="background-color: #4CAF50; /* Green */
+                                    border: none;
+                                    color: white;
+                                    padding: 15px 32px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    font-size: 16px;
+                                    margin: 4px 2px;
+                                    cursor: pointer;
+                                    border-radius: 10px;">Order Now<br>"Business Website "</button>
+
+<script>
+    function openNewPage() {
+        window.open("https://ssybrand.github.io/Order-Confirmation-/", "_blank");
+    }
+</script>
+<br>
+            </div>
+            <div class="service">
+                <h3><font color=Golden><b>Build Your Personal Website 🔎</b></font></h3>
+                <p>In cheap rate build Your personal website with free hosting Name and daily Bolg , Website  ✨</p>
+<br></br>
+<button onclick="openNewPage()" style="background-color: #4CAF50; /* Green */
+                                    border: none;
+                                    color: white;
+                                    padding: 15px 32px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    font-size: 16px;
+                                    margin: 4px 2px;
+                                    cursor: pointer;
+                                    border-radius: 10px;">Order Now<br>"Personal Website"</button>
+
+<script>
+    function openNewPage() {
+        window.open("https://ssybrand.github.io/Order-Confirmation-/", "_blank");
+    }
+</script>
+<br></br>
+<center><font color=Red>Note:&nbsp;</font>we will make a website as you command used and provided matter.Dont be fear we are creating 1000+ website recently ❣️<br>
+<font color=blue>~Sattu technologies</font></center>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Sattu Technologies is dedicated to delivering high-quality Website with a focus on innovation and customer satisfaction we will create 1000+ happy customer recently 💥.</p>
+            <a href="tel:+917860571397" class="btn">Call for Consultation 💞</a>
+        </div>
+    </section>
+
+    <section class="customer-slider">
+        <div class="container">
+            <h3>Customer Review 💞</h3>
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://i.ibb.co/1dFQ69G/IMG-20240516-WA0011-removebg-preview.png" alt="Customer 1"><br><font color=red><strong>Education website</strong></font>
+                   <p>"Sattu Technologies delivered beyond our expectations. Highly recommended! ❣️ "</p>
+                </div>
+                
+                
+                <div class="slide">
+                    <img src="https://i.ibb.co/SwHnNKt/1000258568.jpg" alt="Customer 2"><br><font color=red><strong>N.G.O Website</font></strong>
+                    <p>"Excellent service and great attention to detail. Will work with them again. ❤️‍🩹❤️‍🩹"</p>
+                </div>
+                
+                <div class="slide">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRevRzjbNd3x-XZUwbWNOfm0I0swibzEVDCTINWqc46_5MxSUket1Yjeeg&s=10" alt="Customer 3"><br>
+                  <font color=red><strong >Gaming Website</strong></font>
+                    <p>"Their commitment to quality is unmatched. A pleasure to collaborate with. 💥❤️"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <center>
+      <br></br>
+<h2><font color=red><strong>Our future Vision </font><h3>(SSY BRAND ❣️)</h3></strong></font></h2> 
+  <br> 
+  <br> 
+  <center> 
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyU_eqNE9QGlVJJ8uIyekssNhc8GlqzBczwtQ5Xt_ta9stGGuKjbT2MYNT&amp;s=10" width="30%"> 
+   <br> 
+   <br> 
+   <b>Launching Cabie </b> 
+   <br> 
+   <br> We will decide &amp; to launch 
+   <br> 
+   <br> Cabie in Year 2035 , Where Rural area 
+   <br> 
+   <br> People also enjoyed this benifit. 
+   <br> 
+   <br> 
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0t0OQA4KoKvWJ4UEl7xFWZdKgr32H-l31hhn2KRc14WqmclfQlHgJzIA&amp;s=10" width="30%"> 
+   <br> 
+   <br> 
+   <b>Launching Foodie</b> 
+   <br> 
+   <br> We are ready to help you. You can 
+   <br> 
+   <br> Order Food with our Foodie 
+   <br> 
+   <br>App from anywhere to anything 
+   <br> 
+   <br> what You wanna to eat .&nbsp;🍔🍟 
+   <br> 
+   <br> 
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNmboIe4dsRd6vgE5zpurEQ8CIVriARPRa_2pPu7_Dr48DX8qCGqaSOmSK&amp;s=10" width="30%"> 
+   <br> 
+   <br> 
+   <b>Launching SSY MALL</b> 
+   <br> 
+   <br> We are launching SSY BRAND in Year 2036 
+   <br> 
+   <br>Where people Can buy Daily Grocery 
+   <br> 
+   <br> item and eCommerce products 🎁 
+  </center> 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      background-color: #3498db; /* Blue */
+      padding: 20px;
+      color: #fff; /* White text */
+      text-align:;
+    }
+
+    /* Add more styling for a colorful design */
+    /* Example: */
+    /* footer a {
+         color: #e74c3c;  Red text for links in the footer
+       } */
+  </style> 
+      
+      
+      
+      
+    </center>
+
+<footer>
+        <div class="container">
+            <p>&copy; 2024 Sattu Technologies. All rights reserved.<br>
+            &nbsp;&nbsp;<a href="https://ssybrand.github.io/Website-policy-/">Website policy</a>&nbsp;|&nbsp;&nbsp;<a href="https://ssybrand.github.io/Copyright-sattu-technologies-/">Copyright Policy</a><br>
+            <center><a href="https://ssybrand.github.io/Cancellation-and-Return-Policy/">Cancellation & Return policy</a></center>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Optional: Add JavaScript functionality if needed
+    </script>
+</body>
+</html>
